@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<!-- # this enctype is to process the upload of pictures. Then, we need to create a request.FILES in the views.CreateProject and updateProject -->
+
+    <main class="formPage my-xl">
+        <div class="content-box">
+            <div class="formWrapper">
+                <a class="backButton" href="#"><i class="im im-angle-left"></i></a>
+                <br>
+                <!-- # this enctype is to process the upload of pictures. Then, we need to create a request.FILES in the views.CreateProject and updateProject -->
+                <form class="form" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- Input:Text -->
+
+                    {% for field in form %}
+                    <div class="form__field">
+                        <label for="formInput#text">{{field.label}}: </label>
+                        {{field}}
+                    </div>
+                    {% endfor %}
+
+                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </main>
+
+</form>
+
+
+
+
+{% endblock content %}
